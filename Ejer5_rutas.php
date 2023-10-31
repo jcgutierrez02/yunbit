@@ -1,3 +1,17 @@
+<?php
+   session_start();
+   
+   if (!isset($_SESSION['nombre']))
+      header('Location: login.php');
+   else {
+       $nombre = $_SESSION['nombre'];
+       $apellidos = $_SESSION['apellidos'];
+       
+   }
+    
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -8,6 +22,8 @@
         <link rel='stylesheet' type='text/css' href='css/estilos_2.css' />           
     </head>
     <body>
+    <?php echo 'Conectado como <b>' . $nombre . ' ' . $apellidos ?>
+        <br/><br/>
         <div class="contacto">
            <form action="" method="post" enctype="multipart/form-data" 
                                              onsubmit="return validarForm();"> 
@@ -30,7 +46,7 @@
                 }
                 $clientes = obtener_datos(); 
                 if ( count($clientes) > 0 ) {
-                   echo '<tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>imagen</th><th>img_blob</th></tr>'; 
+                   echo '<tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>imagen</th><th>img_blob</th><th>Acciones</th></tr>'; 
                 }
                 foreach ( $clientes as $cliente ) {
                   
@@ -39,10 +55,10 @@
                    else
                       echo '<tr>';  
 
-                   // Convertir la imagen BLOB en base64
+                    // Convertir la imagen BLOB en base64
                     $imagen_base64 = base64_encode($cliente['imagen2']);
                   
-                   echo "<td>".$cliente['name']."</td><td>".$cliente['address'].
+                    echo "<td>".$cliente['name']."</td><td>".$cliente['address'].
                         "</td><td>".$cliente['tlf'].
 
                         "<td><img src='img/" . $cliente['imagen'] . "' height=50px/></td>" .
@@ -54,7 +70,11 @@
                       * cadena/número. Esta ruta amigable tiene su correspondencia
                       * real definida en el archivo .htaccess y apunta a detalle.php?id=numero
                       */      
-                        "<td><a href='producto/".$cliente['id']."'>detalle</a></td>";   
+                    
+                    echo "<td><a href='producto/". $cliente['id']. "'>detalle</a>
+                              <a href='descarga/". $cliente['id']. "'>descarga</a>
+                              <a href='visualiza/". $cliente['id']. "'>visualiza</a></td>";                       
+
                    echo "</tr>";
                 }
             ?>          

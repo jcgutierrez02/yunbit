@@ -33,7 +33,7 @@ if ( isset($_POST['entrar']) ) {
         if ( $sinError != -1 ) { // Se encontraron los datos -> crear variables de sesión  
            $_SESSION['nombre'] = $fila['nombre'];
            $_SESSION['apellidos'] = $fila['apellidos'];  
-           header('Location: Ejer5.php');
+           header('Location: Ejer5_rutas.php');
         } 
         else // No se encontraron los datos en la BD
            $errorTodos= 'Usuario/Contraseña no válidos <br/>';  
