@@ -2,7 +2,7 @@ function validarForm() {
   
     // El campo nombre no puede estar vacío o estar compuesto solo por espacios en blanco
     var nombre = document.getElementById("nombre").value;
-    if ( /^\s+$/.test(nombre) ) {
+    if ( nombre === "" || /^\s+$/.test(nombre) ) {
         alert("El campo nombre no puede estar vacío");
         return false;
     }
@@ -41,7 +41,14 @@ function validarForm() {
         alert("El campo tipo solamente puede ser 'N' o 'P'");
         return false;
     }
-   
+
+    var imagen = document.getElementById("imagen").value;
+    if (imagen === "") {
+        alert("Por favor, seleccione un archivo.");
+        return false;
+    }
+
+    // Validación con éxito
     return true;
 }            
 
