@@ -9,6 +9,7 @@
     // Para mostrarlos en la página 
     $nombre = $_SESSION['nombre'];
     $apellidos = $_SESSION['apellidos'];  
+    $rol = $_SESSION['rol']; 
 
     $clientes = obtener_datos(); 
 
@@ -103,26 +104,30 @@
     <body>
     <?php echo 'Conectado como <b>' . $nombre . ' ' . $apellidos ?>
     <br/><br/>
-    <div class="contacto">
-        <form action="" method="post" enctype="multipart/form-data" 
-                            onsubmit="return validarForm();"> 
-            <label>Nombre: </label><input type="text" name="nombre" id="nombre"/>
-            <label>Dirección: </label><input type="text" name="direccion" id="direccion"/><br/>
-            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion"/>
-            <label>Teléfono: </label><input type="text" name="telf" id="telf"/><br/>
-            <label>Tipo: </label><input type="text" name="tipo" id="tipo"/><br/>
-            <label>Imagen: </label>
-            <input type="file" name="imagen" id="imagen" /><br/><br/>
-            
-            <input type="submit" name="enviar" value="Nuevo Cliente" /><br/><br/> 
-            
-        </form>
-        <p style="color: green; font-weight: bold"><?php echo $mensajeOK; ?></p><br/>
+    <?php 
+       if ($rol == 'A') // es un administrador => mostrar formulario de inserción
+       {
+    ?>    
+        <div class="contacto">
+            <form action="" method="post" enctype="multipart/form-data" 
+                                onsubmit="return validarForm();"> 
+                <label>Nombre: </label><input type="text" name="nombre" id="nombre"/>
+                <label>Dirección: </label><input type="text" name="direccion" id="direccion"/><br/>
+                <label>Descripción: </label><input type="text" name="descripcion" id="descripcion"/>
+                <label>Teléfono: </label><input type="text" name="telf" id="telf"/><br/>
+                <label>Tipo: </label><input type="text" name="tipo" id="tipo"/><br/>
+                <label>Imagen: </label>
+                <input type="file" name="imagen" id="imagen" /><br/><br/>
+                
+                <input type="submit" name="enviar" value="Nuevo Cliente" /><br/><br/> 
+                
+            </form>
+            <p style="color: green; font-weight: bold"><?php echo $mensajeOK; ?></p><br/>
 
-    </div>    
+        </div>    
 
     <?php
-        
+       }
         if ( count($clientes) > 0 ) {
             echo '<table>';
             echo '<tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>imagen</th><th>img_blob</th><th>Acciones</th></tr>'; 
