@@ -103,7 +103,7 @@
     </head>
     <body>
     <?php echo 'Conectado como <b>' . $nombre . ' ' . $apellidos ?>
-    <br/><br/>
+    <p><a href="desconectar.php">Cerrar Sesión</a></p>
     <?php 
        if ($rol == 'A') // es un administrador => mostrar formulario de inserción
        {

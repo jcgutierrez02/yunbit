@@ -49,7 +49,9 @@
         Nombre: <?php echo $detalle['name']; ?><br/>
         Dirección: <?php echo $detalle['address']; ?><br/>      
         Teléfono: <?php echo $detalle['tlf']; ?><br/>
-        Tipo: <?php echo $detalle['type']; ?><br/><br/><br/>
+        Tipo: <?php echo $detalle['type']; ?><br/>
+        imagen: <img src='../img/batmanbot.jpeg' />
+        <br/><br/>
                
         <a href="javascript:history.go(-1)">Listado Clientes</a><br/>
         <a href="desconectar.php">Cerrar Sesión</a>
