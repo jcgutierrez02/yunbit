@@ -50,7 +50,7 @@
         Dirección: <?php echo $detalle['address']; ?><br/>      
         Teléfono: <?php echo $detalle['tlf']; ?><br/>
         Tipo: <?php echo $detalle['type']; ?><br/>
-        imagen: <img src='../img/batmanbot.jpeg' />
+        imagen: <img src='../img/<?php echo $detalle['imagen']; ?>' />
         <br/><br/>
                
         <a href="javascript:history.go(-1)">Listado Clientes</a><br/>
