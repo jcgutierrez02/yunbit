@@ -155,7 +155,7 @@
                     * real definida en el archivo .htaccess y apunta a detalle.php?id=numero
                     */      
             
-                echo "<td><a href='producto/". $cliente['id']. "'>detalle</a>
+                echo "<td><a href='cliente/". $cliente['id']. "'>detalle</a>
                         <a href='descarga/". $cliente['id']. "'>descarga</a>
                         <a href='visualiza/". $cliente['id']. "'>visualiza</a></td>";                       
 

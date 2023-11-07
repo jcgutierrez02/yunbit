@@ -12,7 +12,11 @@ RewriteEngine on
 
 # El $1 es un parámetro que se corresponde con el patrón [0-9]+
 
-RewriteRule ^producto/([0-9]+)$ detalle.php?id=$1
+RewriteRule ^cliente/([0-9]+)$ detalle.php?id=$1
+
+
+
+
 RewriteRule ^descarga/([0-9]+)$ descarga.php?id=$1
 RewriteRule ^visualiza/([0-9]+)$ visualiza.php?id=$1
 
